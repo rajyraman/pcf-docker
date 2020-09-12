@@ -28,5 +28,3 @@ RUN powershell "Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.Se
 RUN powershell "$path = $env:path + ';' + $(Resolve-Path 'C:\PCFCLI\Microsoft.PowerApps.CLI*\tools' | Select -ExpandProperty Path); `
     Set-ItemProperty -Path 'HKLM:\SYSTEM\CurrentControlSet\Control\Session Manager\Environment\' -Name Path -Value $path"
 ENTRYPOINT ["C:\\run.bat", "&&", "cmd"]
-#ENTRYPOINT ["C:\\BuildTools\\Common7\\Tools\\VsDevCmd.bat", "&&", "cmd"]
-#CMD "pac pcf init -ns %namespace% -n %name% -t %template%"
