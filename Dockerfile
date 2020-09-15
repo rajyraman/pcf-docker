@@ -1,6 +1,12 @@
 # escape=`
 
 FROM mcr.microsoft.com/windows/servercore:2004
+LABEL org.opencontainers.image.source https://github.com/rajyraman/pcf-docker
+LABEL org.opencontainers.image.documentation https://github.com/rajyraman/pcf-docker/README.md
+LABEL org.opencontainers.image.authors Natraj Yegnaraman
+LABEL org.opencontainers.image.title PCF on Docker
+LABEL org.opencontainers.image.description This image helps you to develope PCF Components inside a Docker container
+
 ADD run.bat C:/run.bat
 COPY src c:/src
 WORKDIR C:/src

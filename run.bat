@@ -4,4 +4,4 @@ mkdir Solution && cd Solution
 mkdir %name% && cd %name%
 pac solution init -pn %publisherprefix% -pp %publishername%
 pac solution add-reference -p ..\..\
-cd c:\src\%namespace%.%name% && npm install && C:\BuildTools\Common7\Tools\VsDevCmd.bat
+cd c:\src\%namespace%.%name% && C:\BuildTools\Common7\Tools\VsDevCmd.bat && npm install
