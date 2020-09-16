@@ -13,7 +13,7 @@ docker build --pull --rm -t rajyraman/pcf:v1 -t rajyraman/pcf -t ghcr.io/rajyram
 Below is an example of the command you need to run, if you want to spin up a new container using the pcf image.
 
 ```
-docker run -it -v $pwd\src:c:\src --name TestComponent -p 8181:8181  --env-file pcf.env  ghcr.io/rajyraman/pcf:v1 --rm
+docker run -it -v $pwd\src:c:\src --name TestComponent -p 8181:8181  --env-file pcf.env  ghcr.io/rajyraman/pcf:v1
 ```
 
 ## Environment File
