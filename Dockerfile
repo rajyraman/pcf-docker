@@ -7,7 +7,6 @@ LABEL org.opencontainers.image.authors Natraj Yegnaraman
 LABEL org.opencontainers.image.title PCF on Docker
 LABEL org.opencontainers.image.description This image helps you to develope PCF Components inside a Docker container
 
-ADD run.bat C:/run.bat
 COPY src c:/src
 WORKDIR C:/src
 EXPOSE 8181
@@ -33,4 +32,5 @@ RUN powershell "Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.Se
     choco install netfx-4.6.2-devpack --force --confirm"
 RUN powershell "$path = $env:path + ';' + $(Resolve-Path 'C:\PCFCLI\Microsoft.PowerApps.CLI*\tools' | Select -ExpandProperty Path); `
     Set-ItemProperty -Path 'HKLM:\SYSTEM\CurrentControlSet\Control\Session Manager\Environment\' -Name Path -Value $path"
-ENTRYPOINT ["C:\\run.bat", "&&", "cmd"]
+ADD run.bat C:/run.bat
+ENTRYPOINT ["C:\\BuildTools\\Common7\\Tools\\VsDevCmd.bat", "&&", "C:\\run.bat", "&&", "powershell.exe", "-NoLogo", "-ExecutionPolicy", "Bypass"]
